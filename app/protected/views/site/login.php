@@ -33,9 +33,9 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model, 'campus_id'); ?>
-		<?php echo $form->textField($model, 'campus_id'); ?>
-		<?php echo $form->error($model, 'campus_id'); ?>
+		<?php echo $form->labelEx($model, 'campusId'); ?>
+		<?php echo $form->textField($model, 'campusId'); ?>
+		<?php echo $form->error($model, 'campusId'); ?>
 	</div>
 	
 	<div class="row rememberMe">

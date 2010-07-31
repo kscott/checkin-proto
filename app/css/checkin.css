@@ -126,16 +126,8 @@ div.action a {
 	color: #999;
 }
 
-#dialog input#user-name {
+#dialog input {
 	width: 200px;
-}
-
-#dialog input#password {
-	width: 200px;
-}
-
-#dialog input#sign-in {
-	margin-bottom: 20px;
 }
 
 #dialog dd.radio-across {
