@@ -32,6 +32,12 @@ $this->breadcrumbs=array(
 		</p>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model, 'campus_id'); ?>
+		<?php echo $form->textField($model, 'campus_id'); ?>
+		<?php echo $form->error($model, 'campus_id'); ?>
+	</div>
+	
 	<div class="row rememberMe">
 		<?php echo $form->checkBox($model,'rememberMe'); ?>
 		<?php echo $form->label($model,'rememberMe'); ?>

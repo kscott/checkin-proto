@@ -7,6 +7,14 @@
  */
 class UserIdentity extends CUserIdentity
 {
+	private $campus_id;
+	
+	public function __construct($username, $password, $campus_id)
+	{
+		parent::__construct($username, $password);
+		$this->campus_id = $campus_id;
+	}
+	
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -17,17 +25,18 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		else if($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			$this->errorCode=self::ERROR_NONE;
+		$criteria = new CDbCriteria;
+		$criteria->addCondition(array('checkin_login = :login', 'checkin_password = :password', 'id = :campus'));
+		$criteria->params = array(':login' => $this->username, ':password' => $this->password, ':campus' => $this->campus_id);
+		$user = CheckinUser::model()->find($criteria);
+
+		if ($user) {
+			$this->errorCode = self::ERROR_NONE;
+		}
+		else {
+			$this->errorCode = self::ERROR_USERNAME_INVALID;
+		}
+		
 		return !$this->errorCode;
 	}
 }

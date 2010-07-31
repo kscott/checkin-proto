@@ -45,6 +45,8 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
 		),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
@@ -61,7 +63,13 @@ return array(
 				array(
 					'class'=>'CWebLogRoute',
 					'showInFireBug'=>true,
+					'levels'=>'trace,info, error, warning',
 				),
+				// array(
+				// 	'class'=> 'CProfileLogRoute',
+				// 	'showInFireBug' => true,
+				// 	'levels'=>'trace,info, error, warning',
+				// ),
 			),
 		),
 	),
