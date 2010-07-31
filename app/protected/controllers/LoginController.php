@@ -20,8 +20,9 @@ class LoginController extends Controller
 
 	public function actionIndex()
 	{
+		$campus = Campus::model()->find('id = :id', array(':id' => 5));
 		$model = new LoginForm;
-		$model->campusId = 5;
+		$model->campusId = $campus->id;
 		$this->render('login', array('model' => $model));
 	}
 
