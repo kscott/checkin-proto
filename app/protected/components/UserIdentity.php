@@ -28,6 +28,7 @@ class UserIdentity extends CUserIdentity
 		$criteria = new CDbCriteria;
 		$criteria->addCondition(array('checkin_login = :login', 'checkin_password = :password', 'id = :campus'));
 		$criteria->params = array(':login' => $this->username, ':password' => $this->password, ':campus' => $this->campus_id);
+		
 		$user = CheckinUser::model()->find($criteria);
 
 		if ($user) {
