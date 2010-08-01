@@ -12,8 +12,9 @@ class LoginController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->urlManager->baseUrl);
+			if($model->validate() && $model->login()) {
+				$this->redirect(Yii::app()->urlManager->baseUrl . '/login/settings');
+			}
 		}
 		$this->render('login', array('model' => $model));
 	}
@@ -24,6 +25,11 @@ class LoginController extends Controller
 		$model = new LoginForm;
 		$model->campusId = $campus->id;
 		$this->render('login', array('model' => $model));
+	}
+
+	public function actionSettings()
+	{
+		$this->render('settings');
 	}
 
 	// -----------------------------------------------------------
