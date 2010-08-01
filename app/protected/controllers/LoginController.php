@@ -15,7 +15,7 @@ class LoginController extends Controller
 			if($model->validate() && $model->login())
 				$this->redirect(Yii::app()->urlManager->baseUrl);
 		}
-		// $this->redirect('index', array('model'=>$model));
+		$this->render('login', array('model' => $model));
 	}
 
 	public function actionIndex()
