@@ -10,9 +10,7 @@
 		'action' => 'login/login',
 		'enableAjaxValidation'=>true,
 	));
-?>
 
-	<?php
 	if ( ! $session['has_multiple_campuses'] ) {
 		echo $form->hiddenField($model, 'campusId');
 	}
