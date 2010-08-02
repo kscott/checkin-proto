@@ -25,6 +25,10 @@ $form = $this->beginWidget('CActiveForm', array(
 	<p class="block-intro">The groups that are a part of the attendance grouping selected above must have events already setup for the date and time you select here to be available for check-in. After you click "Start Check-In", you will see a list of all of the groups in the selected attendance grouping and whether or not they have an event ready for check-in for the selected date and time.</p>
 	<div class="block">
 		<p>
+		<?php
+			$this->widget('zii.widgets.jui.CJuiDatePicker', array('name'=>'dateTime',
+						'options'=>array('changeMonth'=>true, 'changeYear'=>true, 'minDate'=>'new Date()')));
+		?>
 		</p>
 	</div>
 	
