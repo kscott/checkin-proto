@@ -29,7 +29,10 @@ class LoginController extends Controller
 
 	public function actionSettings()
 	{
-		$this->render('settings');
+		$attendanceGroupings = AttendanceGrouping::model()->findAll();
+		$attendanceGroupings = CHtml::listData($attendanceGroupings, 'id', 'name');
+		$model = array('attendanceGroupings'=>$attendanceGroupings);
+		$this->render('settings', array('model'=>$model));
 	}
 
 	// -----------------------------------------------------------

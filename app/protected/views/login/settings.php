@@ -15,6 +15,9 @@ $form = $this->beginWidget('CActiveForm', array(
 <p class="block-intro">These are the categories that certain groups are placed into for attendance tracking purposes. Select one from the list to access the groups in that category for check-in.</p>
 	<div class="block">
 		<p>
+		<?php
+			echo CHtml::dropDownList('attendanceGrouping','',$model['attendanceGroupings']);
+		?>
 		</p>
 	</div>
 	
