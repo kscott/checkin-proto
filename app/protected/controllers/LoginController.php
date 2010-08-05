@@ -29,10 +29,16 @@ class LoginController extends Controller
 
 	public function actionSettings()
 	{
+		$model = new CheckinSettingsForm;
+		if(isset($_POST['CheckinSettingsForm'])) {
+			$model->attributes=$_POST['CheckinSettingsForm'];
+
+			if ( $model->validate() ) {
+			}
+		}
 		$attendanceGroupings = AttendanceGrouping::model()->findAll();
 		$attendanceGroupings = CHtml::listData($attendanceGroupings, 'id', 'name');
-		$model = array('attendanceGroupings'=>$attendanceGroupings);
-		$this->render('settings', array('model'=>$model));
+		$this->render('settings', array('model'=>$model, 'attendanceGroupings'=>$attendanceGroupings));
 	}
 
 	// -----------------------------------------------------------

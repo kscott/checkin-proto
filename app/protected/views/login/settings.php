@@ -1,22 +1,23 @@
 <?php if ( $message != "" ) { ?><div id="message"><?= urldecode($message); ?></div><?php } ?>
 
 <h1>Check-In Station Settings</h1>
-<h2>Attendance Grouping</h2>
-	
 <div class="form">
+<?php echo CHtml::errorSummary($model); ?>
+	
 <?php
 $form = $this->beginWidget('CActiveForm', array(
-			'id'=>'settings-form',
-			'action'=>'login/settings',
+			'id'=>'checkin-settings-form',
+			'action'=>'settings',
 			'enableAjaxValidation'=>true,
 		));
 ?>
 
+<h2>Attendance Grouping</h2>
 <p class="block-intro">These are the categories that certain groups are placed into for attendance tracking purposes. Select one from the list to access the groups in that category for check-in.</p>
 	<div class="block">
 		<p>
 		<?php
-			echo CHtml::dropDownList('attendanceGrouping','',$model['attendanceGroupings']);
+			echo CHtml::activeDropDownList($model, 'attendanceGrouping', $attendanceGroupings); 
 		?>
 		</p>
 	</div>
@@ -26,8 +27,15 @@ $form = $this->beginWidget('CActiveForm', array(
 	<div class="block">
 		<p>
 		<?php
-			$this->widget('zii.widgets.jui.CJuiDatePicker', array('name'=>'dateTime',
-						'options'=>array('changeMonth'=>true, 'changeYear'=>true, 'minDate'=>'new Date()')));
+			$this->widget('zii.widgets.jui.CJuiDatePicker', array('name'=>'date', 'model'=>$model,
+						'options'=>array('changeMonth'=>true, 'changeYear'=>true, 'maxDate'=>'new Date()', 'minDate'=>'-30')));
+		?>
+		<strong>&#64;</strong>
+		<?php
+			echo CHtml::activeDropDownList($model, 'hour', array('1'=>'01', '2'=>'02', '3'=>'03', '4'=>'04', '5'=>'05', '6'=>'06', '7'=>'07', '8'=>'08', '9'=>'09', '10'=>'10', '11'=>'11', '12'=>'12'));
+			echo CHtml::activeDropDownList($model, 'minute', array('0'=>'00', '15'=>'15', '30'=>'30', '45'=>'45'));
+			echo CHtml::activeDropDownList($model, 'amPm', array('AM'=>'AM', 'PM'=>'PM'));
+			echo CHtml::error($model, 'date');
 		?>
 		</p>
 	</div>
@@ -81,6 +89,7 @@ $form = $this->beginWidget('CActiveForm', array(
 	</div>
 	
 	<div class="action">
+		<?php echo CHtml::submitButton('Start Check-in'); ?>
 	</div>   
 
 	<?php $this->endWidget(); ?>
