@@ -36,7 +36,7 @@ class LoginController extends Controller
 			if ( $model->validate() ) {
 			}
 		}
-		$attendanceGroupings = AttendanceGrouping::model()->findAll();
+		$attendanceGroupings = AttendanceGrouping::model()->findAll(array('select'=>'id, name'));
 		$attendanceGroupings = CHtml::listData($attendanceGroupings, 'id', 'name');
 		$this->render('settings', array('model'=>$model, 'attendanceGroupings'=>$attendanceGroupings));
 	}

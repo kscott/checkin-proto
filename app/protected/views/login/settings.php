@@ -27,7 +27,7 @@ $form = $this->beginWidget('CActiveForm', array(
 	<div class="block">
 		<p>
 		<?php
-			$this->widget('zii.widgets.jui.CJuiDatePicker', array('name'=>'date', 'model'=>$model,
+			$this->widget('zii.widgets.jui.CJuiDatePicker', array('attribute'=>'date', 'model'=>$model,
 						'options'=>array('changeMonth'=>true, 'changeYear'=>true, 'maxDate'=>'new Date()', 'minDate'=>'-30')));
 		?>
 		<strong>&#64;</strong>
