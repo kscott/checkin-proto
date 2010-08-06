@@ -44,8 +44,18 @@ $form = $this->beginWidget('CActiveForm', array(
 	<p class="block-intro">The check-in system can be used for child check-in, church-wide events, adult classes, youth check-in, etc. Under different scenarios, you might need the labels to have a security code,
 		you might need an extra label for a diaper bag, you might only want the person's name for an adult group setting or you may not need a label at all. For labels with security codes, choose the
 		security code option that works best with your system of notifying parents (ie, some systems can only display 3 numeric digits while others can display alphanumerics).</p>
-	<div class="block">
+	<div class="row block">
 		<p>
+		<?php
+			echo CHtml::activeRadioButtonList($model, 
+					'labelQuantity', 
+					array('0'=>'Check-in without printing a label', 
+						  '1'=>'Print one label with a security code, plus a pick-up tag', 
+						  '2'=>'Print one label with a security code, plus a pick-up tag', 
+						  '7'=>'Print a name only label'),
+					array('class'=>'small')
+					);
+		?>
 		</p>
 	</div>
 	<div class="block no-break-block" id="security_code_type" <?= ($label_quantity != '1' && $label_quantity != '2')?'style="display:none;"':''; ?>>
@@ -57,6 +67,14 @@ $form = $this->beginWidget('CActiveForm', array(
 	<p class="block-intro">A check-in station can be either manned with a volunteer to do normal check-in, or can be unmanned and allow people who already have a barcode keytag to do basic, self check-in.</p>
 	<div class="block">
 		<p>
+		<?php
+			echo CHtml::activeRadioButtonList($model, 
+					'stationType', 
+					array('manned'=>'Manned check-in station',
+						  'self'=>'Self check-in station'),
+					array('class'=>'small')
+					);
+		?>
 		</p>
 	</div>
 	
@@ -68,6 +86,13 @@ $form = $this->beginWidget('CActiveForm', array(
 			<p class="block-intro">Check this box if you use pagers.</p>
 			<div class="block">
 				<p>
+				<?php
+					echo CHtml::activeCheckBox($model, 
+							'pager', 
+							array('value'=>'1', 'class'=>'small')
+							);
+					echo CHtml::activeLabel($model, 'pager');
+				?>
 				</p>
 			</div>
 		</div>
@@ -76,6 +101,9 @@ $form = $this->beginWidget('CActiveForm', array(
 		<p class="block-intro">The membership type option selected below will be used as the default for individuals when creating a new family through this check-in station.</p>
 		<div class="block">
 			<p>
+			<?php
+				echo CHtml::activeDropDownList($model, 'defaultMembershipType', array(''=>'Choose...', '2'=>'Prospect', '1'=>'Member', '4'=>'Other'));
+			?>
 			</p>
 		</div>
 		
@@ -83,6 +111,14 @@ $form = $this->beginWidget('CActiveForm', array(
 		<p class="block-intro">Reports can be made available from the screens during the check-in process.</p>
 		<div class="block">
 			<p>
+			<?php
+				echo CHtml::activeRadioButtonList($model, 
+						'displayReports', 
+						array('yes'=>'<strong>Yes</strong>, make reports accessible from this check-in station',
+							  'no'=>'<strong>No</strong>, reports should not be available from this check-in station'),
+						array('class'=>'small')
+						);
+			?>
 			</p>
 		</div>
 		

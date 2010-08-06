@@ -30,6 +30,8 @@ class LoginController extends Controller
 	public function actionSettings()
 	{
 		$model = new CheckinSettingsForm;
+
+		//Set the default selection
 		if(isset($_POST['CheckinSettingsForm'])) {
 			$model->attributes=$_POST['CheckinSettingsForm'];
 

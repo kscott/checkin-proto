@@ -130,6 +130,10 @@ div.action a {
 	width: 200px;
 }
 
+input.small {
+	display:inline;
+	width: 25px !important;
+}
 #dialog dd.radio-across {
 	font-size: 12px;
 }
@@ -246,6 +250,10 @@ label {
 }
 
 label.noblock {
+    display:inline;
+}
+
+input.small + label {
     display:inline;
 }
 
