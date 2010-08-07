@@ -22,10 +22,17 @@ class LoginController extends Controller
 
 	public function actionIndex()
 	{
-		$campus = Campus::model()->find('id = :id', array(':id' => 5));
+		$campuses = Campus::model()->findAll(
+			array(
+				'condition' => 'inactive != :inactive',
+				'params' => array(':inactive' => '1'),
+				'order' => 'order_by',
+			)
+		);
+		$campusList = CHtml::listData($campuses, 'id', 'name');
+		
 		$model = new LoginForm;
-		$model->campusId = $campus->id;
-		$this->render('login', array('model' => $model));
+		$this->render('login', array('model' => $model, 'campusList' => $campusList));
 	}
 
 	public function actionSettings()
