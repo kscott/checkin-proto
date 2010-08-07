@@ -28,6 +28,9 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
+	            'gii'=>'gii',
+	            'gii/<controller:\w+>'=>'gii/<controller>',
+	            'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
@@ -72,6 +75,16 @@ return array(
 				// ),
 			),
 		),
+	),
+
+	'modules'=>array(
+	    'gii'=>array(
+	        'class'=>'system.gii.GiiModule',
+	        'password'=>'checkin',
+	        // 'ipFilters'=>array(...a list of IPs...),
+	        // 'newFileMode'=>0666,
+	        // 'newDirMode'=>0777,
+	    ),
 	),
 
 	// application-level parameters that can be accessed
