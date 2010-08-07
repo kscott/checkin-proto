@@ -51,6 +51,16 @@ return array(
 			'enableProfiling' => true,
 			'enableParamLogging' => true,
 		),
+		'ccb'=>array(
+			'class' => 'CDbConnection',
+			'connectionString' => 'mysql:host=localhost;dbname=ccbcompany',
+			'emulatePrepare' => true,
+			'username' => 'root',
+			'password' => '',
+			'charset' => 'utf8',
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+		),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
             'errorAction'=>'site/error',

@@ -13,6 +13,7 @@ class LoginController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login()) {
+				$orgApp = OrgSettings::model()->find('id = :id', array(':id' => 10621));
 				$this->redirect(Yii::app()->urlManager->baseUrl . '/login/settings');
 			}
 		}
