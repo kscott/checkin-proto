@@ -21,8 +21,7 @@
 			?>
 			<dt><?php echo $form->labelEx($model, 'campusId'); ?></dt>
 			<dd>
-				<?php echo CHtml::activeDropDownList($model, 'campusId', $campusList); ?>
-					<!-- <option value="">Select a campus...</option> -->
+				<?php echo CHtml::activeDropDownList($model, 'campusId', $campusList, array('empty' => 'Select a campus...')); ?>
 			</dd>
 			<?php
 		// }
