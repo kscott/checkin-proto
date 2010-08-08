@@ -13,8 +13,6 @@ class LoginController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login()) {
-				$orgApp = OrgSettings::model()->find('id = :id', array(':id' => 10621));
-				Yii::app()->session['organization'] = $orgApp->toArray();
 				$this->redirect(Yii::app()->urlManager->baseUrl . '/login/settings');
 			}
 		}
@@ -62,19 +60,14 @@ class LoginController extends Controller
 
 	// -----------------------------------------------------------
 	// Uncomment the following methods and override them if needed
-	/*
 	public function filters()
 	{
 		// return the filter configuration for this controller, e.g.:
 		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
+			'_loadSession + index',
 		);
 	}
-
+	/*
 	public function actions()
 	{
 		// return external action classes, e.g.:
@@ -87,4 +80,10 @@ class LoginController extends Controller
 		);
 	}
 	*/
+	
+	public function filter_loadSession($filterChain) {
+		$orgApp = OrgSettings::model()->find('id = :id', array(':id' => 10621));
+		Yii::app()->session['organization'] = $orgApp->toArray();
+		$filterChain->run();
+	}
 }
