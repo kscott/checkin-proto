@@ -51,7 +51,7 @@ $form = $this->beginWidget('CActiveForm', array(
 					'labelQuantity', 
 					array('0'=>'Check-in without printing a label', 
 						  '1'=>'Print one label with a security code, plus a pick-up tag', 
-						  '2'=>'Print one label with a security code, plus a pick-up tag', 
+						  '2'=>'Print two labels with a security code, plus a pick-up tag', 
 						  '7'=>'Print a name only label'),
 					array('class'=>'small')
 					);
