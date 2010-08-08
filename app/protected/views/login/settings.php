@@ -43,7 +43,7 @@ $form = $this->beginWidget('CActiveForm', array(
 	<h2>Label Options</h2>
 	<p class="block-intro">The check-in system can be used for child check-in, church-wide events, adult classes, youth check-in, etc. Under different scenarios, you might need the labels to have a security code,
 		you might need an extra label for a diaper bag, you might only want the person's name for an adult group setting or you may not need a label at all. For labels with security codes, choose the
-		security code option that works best with your system of notifying parents (ie, some systems can only display 3 numeric digits while others can display alphanumerics).</p>
+		security code option that works best with your system of notifying parents (i.e., some systems can only display 3 numeric digits while others can display alphanumerics).</p>
 	<div class="row block">
 		<p>
 		<?php
@@ -52,7 +52,7 @@ $form = $this->beginWidget('CActiveForm', array(
 					array('0'=>'Check-in without printing a label', 
 						  '1'=>'Print one label with a security code, plus a pick-up tag', 
 						  '2'=>'Print two labels with a security code, plus a pick-up tag', 
-						  '7'=>'Print a name only label'),
+						  '7'=>'Print a name-only label'),
 					array('class'=>'small')
 					);
 		?>
