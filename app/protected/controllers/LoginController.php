@@ -18,7 +18,15 @@ class LoginController extends Controller
 				$this->redirect(Yii::app()->urlManager->baseUrl . '/login/settings');
 			}
 		}
-		$this->render('login', array('model' => $model));
+		$campuses = Campus::model()->findAll(
+			array(
+				'condition' => 'inactive != :inactive',
+				'params' => array(':inactive' => '1'),
+				'order' => 'order_by',
+			)
+		);
+		$campusList = CHtml::listData($campuses, 'id', 'name');
+		$this->render('login', array('model' => $model, 'campusList' => $campusList));
 	}
 
 	public function actionIndex()
