@@ -115,6 +115,63 @@ class OrgSettings extends CActiveRecord
 	}
 
 	/**
+	 * @return array current settings as an associative array
+	 */
+	public function toArray()
+	{
+		return array(
+			'id' => $this->id,
+			'owner_id' => $this->owner_id,
+			'contact_tech_1_id' => $this->contact_tech_1_id,
+			'contact_tech_2_id' => $this->contact_tech_2_id,
+			'ccb_version_database' => $this->ccb_version_database,
+			'ccb_version_scripts' => $this->ccb_version_scripts,
+			'database_server' => $this->database_server,
+			'database_slave_server' => $this->database_slave_server,
+			'database_name' => $this->database_name,
+			'private_ccbchurch_url_prefix' => $this->private_ccbchurch_url_prefix,
+			'mod_checkin_on' => $this->mod_checkin_on,
+			'mod_checkin_old_style_barcode' => $this->mod_checkin_old_style_barcode,
+			'mod_checkin_room_manage_on' => $this->mod_checkin_room_manage_on,
+			'mod_checkin_self' => $this->mod_checkin_self,
+			'mod_checkin_multi_service' => $this->mod_checkin_multi_service,
+			'mod_multisite_on' => $this->mod_multisite_on,
+			'demo_mode' => $this->demo_mode,
+			'child_work_age' => $this->child_work_age,
+			'pref_child_work_approved_ma_only' => $this->pref_child_work_approved_ma_only,
+			'private_ccbchurch_url_prefix' => $this->private_ccbchurch_url_prefix,
+			'name' => $this->name,
+			'color_primary' => $this->color_primary,
+			'color_secondary' => $this->color_secondary,
+			'color_table_row_light' => $this->color_table_row_light,
+			'color_table_row_dark' => $this->color_table_row_dark,
+			'default_limited_access_user' => $this->default_limited_access_user,
+			'default_listed' => $this->default_listed,
+			'default_picture_privacy_lvl' => $this->default_picture_privacy_lvl,
+			'default_mailing_privacy_lvl' => $this->default_mailing_privacy_lvl,
+			'default_phone_contact_privacy_lvl' => $this->default_phone_contact_privacy_lvl,
+			'default_phone_home_privacy_lvl' => $this->default_phone_home_privacy_lvl,
+			'default_phone_work_privacy_lvl' => $this->default_phone_work_privacy_lvl,
+			'default_phone_mobile_privacy_lvl' => $this->default_phone_mobile_privacy_lvl,
+			'default_phone_fax_privacy_lvl' => $this->default_phone_fax_privacy_lvl,
+			'default_phone_pager_privacy_lvl' => $this->default_phone_pager_privacy_lvl,
+			'default_phone_emergency_privacy_lvl' => $this->default_phone_emergency_privacy_lvl,
+			'default_birthday_privacy_lvl' => $this->default_birthday_privacy_lvl,
+			'default_anniversary_privacy_lvl' => $this->default_anniversary_privacy_lvl,
+			'default_gender_privacy_lvl' => $this->default_gender_privacy_lvl,
+			'default_marital_status_privacy_lvl' => $this->default_marital_status_privacy_lvl,
+			'default_home_privacy_lvl' => $this->default_home_privacy_lvl,
+			'default_work_privacy_lvl' => $this->default_work_privacy_lvl,
+			'default_other_privacy_lvl' => $this->default_other_privacy_lvl,
+			'default_allergies_privacy_lvl' => $this->default_allergies_privacy_lvl,
+			'default_udf_privacy_lvl' => $this->default_udf_privacy_lvl,
+			'default_fit_privacy_lvl' => $this->default_fit_privacy_lvl,
+			'default_community_privacy_lvl' => $this->default_community_privacy_lvl,
+			'inactive' => $this->inactive,
+		);
+	}
+
+	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()

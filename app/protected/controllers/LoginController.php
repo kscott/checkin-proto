@@ -14,6 +14,7 @@ class LoginController extends Controller
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login()) {
 				$orgApp = OrgSettings::model()->find('id = :id', array(':id' => 10621));
+				Yii::app()->session['organization'] = $orgApp->toArray();
 				$this->redirect(Yii::app()->urlManager->baseUrl . '/login/settings');
 			}
 		}
