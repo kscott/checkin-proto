@@ -1,3 +1,4 @@
+
 <div id="inner-title">Search</a></div>
 
 <form autocomplete="off" action="checkin_family_list.php" autocomplete="off" name="main_form" method="post" class="display:inline;">
@@ -11,7 +12,7 @@
 	
 	<div id="main-search-container">
 		<div id="main-search">
-			<input type="text" name="search_text" id="search-text" value="" size="35" maxlength="30" /> 
+			
 		</div>
 	</div>
 

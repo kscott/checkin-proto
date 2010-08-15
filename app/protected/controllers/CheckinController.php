@@ -11,6 +11,8 @@ class CheckinController extends Controller
 
 	public function actionSearch()
 	{
+		echo json_encode(array('id'=>3, 'name'=>'Corey'));
+		exit;
 	}
 
 	// Uncomment the following methods and override them if needed

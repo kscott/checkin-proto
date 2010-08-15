@@ -36,6 +36,12 @@ return array(
 				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 			),
 		),
+		'scriptMap' => array(
+			'jquery.js' => false,
+			'jquery.min.js' => false,
+			'jquery.metadata.js' => false,
+			'jquery.ajaxqueue.js' => false,
+		),
 		/*
 		'db' => array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',

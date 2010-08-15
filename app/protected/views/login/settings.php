@@ -1,3 +1,15 @@
+<?php
+$javascript = <<<HTML
+	jQuery(document).ready(function(){
+		jQuery('#CheckinSettingsForm_date').datepicker({'changeMonth':true, 'changeYear':true, 'maxDate':'new Date()', 'minDate':'-30'});
+	});
+HTML;
+
+Yii::app()->clientScript->registerScript('pageScript', $javascript, CClientScript::POS_HEAD);
+?>
+
+
+
 <?php if ( $message != "" ) { ?><div id="message"><?= urldecode($message); ?></div><?php } ?>
 
 <h1>Check-In Station Settings</h1>
@@ -8,7 +20,6 @@
 $form = $this->beginWidget('CActiveForm', array(
 			'id'=>'checkin-settings-form',
 			'action'=>'settings',
-			'enableAjaxValidation'=>true,
 		));
 ?>
 
@@ -26,10 +37,7 @@ $form = $this->beginWidget('CActiveForm', array(
 	<p class="block-intro">The groups that are a part of the attendance grouping selected above must have events already setup for the date and time you select here to be available for check-in. After you click "Start Check-In", you will see a list of all of the groups in the selected attendance grouping and whether or not they have an event ready for check-in for the selected date and time.</p>
 	<div class="block">
 		<p>
-		<?php
-			$this->widget('zii.widgets.jui.CJuiDatePicker', array('attribute'=>'date', 'model'=>$model,
-						'options'=>array('changeMonth'=>true, 'changeYear'=>true, 'maxDate'=>'new Date()', 'minDate'=>'-30')));
-		?>
+		<?php echo $form->textField($model, 'date'); ?><?php echo $form->error($model,'date'); ?>
 		<strong>&#64;</strong>
 		<?php
 			echo CHtml::activeDropDownList($model, 'hour', array('1'=>'01', '2'=>'02', '3'=>'03', '4'=>'04', '5'=>'05', '6'=>'06', '7'=>'07', '8'=>'08', '9'=>'09', '10'=>'10', '11'=>'11', '12'=>'12'));
