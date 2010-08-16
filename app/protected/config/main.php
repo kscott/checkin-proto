@@ -31,10 +31,18 @@ return array(
 	            'gii' => 'gii',
 	            'gii/<controller:\w+>' => 'gii/<controller>',
 	            'gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',
+				'checkin'=>'checkin/index',
+				'checkin/<id:\d+>'=>'checkin/events',
 				'<controller:\w+>/<id:\d+>' => '<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
 				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 			),
+		),
+		'scriptMap' => array(
+			'jquery.js' => false,
+			'jquery.min.js' => false,
+			'jquery.metadata.js' => false,
+			'jquery.ajaxqueue.js' => false,
 		),
 		/*
 		'db' => array(

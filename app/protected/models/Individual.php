@@ -176,6 +176,7 @@ class Individual extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
+			'family' => array(self::BELONGS_TO, 'Family', 'family_id')
         );
     }
 
