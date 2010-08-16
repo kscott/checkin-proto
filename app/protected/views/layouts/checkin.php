@@ -5,6 +5,10 @@
 	
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 	<META HTTP-EQUIV="Expires" CONTENT="Fri, 26 Mar 1999 23:59:59 GMT">
+
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/checkinMain.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui.css" />
 		
 	<?php echo CGoogleApi::init(); ?>
 	 
@@ -29,8 +33,6 @@
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/checkinMain.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	
 	<style type="text/css" media="print">
 		
