@@ -23,6 +23,7 @@ return array(
 		'user' => array(
 			// enable cookie-based authentication
 			'allowAutoLogin' => true,
+			'loginUrl' => array('login'),
 		),
 		// uncomment the following to enable URLs in path-format
 		'urlManager' => array(
@@ -68,6 +69,10 @@ return array(
 			'charset' => 'utf8',
 			'enableProfiling' => true,
 			'enableParamLogging' => true,
+		),
+		'authManager' => array(
+			'class' => 'CDbAuthManager',
+			'connectionID' => 'db',
 		),
 		'errorHandler' => array(
 			// use 'site/error' action to display errors

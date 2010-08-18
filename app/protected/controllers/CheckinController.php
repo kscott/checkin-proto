@@ -41,7 +41,7 @@ class CheckinController extends Controller
 	}
 
 	public function actionEvents() {
-		echo 'hello';
+		echo 'family_id: ' . $_GET['id'];
 	}
 
 	// Uncomment the following methods and override them if needed
