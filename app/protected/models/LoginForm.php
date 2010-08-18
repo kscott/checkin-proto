@@ -25,7 +25,7 @@ class LoginForm extends CFormModel
 			// username and password are required
 			array('username, password, campusId', 'required'),
 			// rememberMe needs to be a boolean
-			array('rememberMe', 'boolean'),
+			// array('rememberMe', 'boolean'),
 			// campusId is numeric
 			// array('campusId', 'number'),
 			// password needs to be authenticated
@@ -50,6 +50,9 @@ class LoginForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
+		if(! $this->campusId) {
+			$this->addError('campus', 'Please select a campus');
+		}
 		$this->_identity=new UserIdentity($this->username,$this->password,$this->campusId);
 		if(!$this->_identity->authenticate())
 			$this->addError('password','Incorrect username or password.');
