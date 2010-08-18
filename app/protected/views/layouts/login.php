@@ -6,6 +6,14 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/checkin.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui.css" />
+
+	<?php echo CGoogleApi::init(); ?>
+	 
+	<?php echo CHtml::script(
+		CGoogleApi::load('jquery','1.4') . "\n" .
+		CGoogleApi::load('jqueryui','1.8') . "\n"
+	); ?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>

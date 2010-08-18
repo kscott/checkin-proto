@@ -5,22 +5,17 @@
 	
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 	<META HTTP-EQUIV="Expires" CONTENT="Fri, 26 Mar 1999 23:59:59 GMT">
-		
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-	
+
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/checkinMain.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-	
-	<style type="text/css" media="print">
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui.css" />
 		
-		#header {display: none;}
-		#top-nav {display: none;}
-		#page-nav {display: none;}
-		#screen-content-only {display: none;}
-		.print-no {display: none;page-break-after:always;}
-
-	</style>
-	
+	<?php echo CGoogleApi::init(); ?>
+	 
+	<?php echo CHtml::script(
+		CGoogleApi::load('jquery','1.4') . "\n" .
+		CGoogleApi::load('jqueryui','1.8') . "\n"
+	); ?>
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
@@ -35,7 +30,19 @@
 	  })();
 
 	</script>
+
+	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	
+	
+	<style type="text/css" media="print">
+		
+		#header {display: none;}
+		#top-nav {display: none;}
+		#page-nav {display: none;}
+		#screen-content-only {display: none;}
+		.print-no {display: none;page-break-after:always;}
+
+	</style>
 </head>
 
 <body>
